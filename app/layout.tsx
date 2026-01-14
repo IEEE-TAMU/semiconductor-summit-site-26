@@ -10,6 +10,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "IEEE Semiconductor Summit 2026",
   description: "The Largest Student-Run Semiconductor Summit in the Nation",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

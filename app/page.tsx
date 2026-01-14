@@ -12,8 +12,10 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
-      <Schedule />
-      <Sponsors />
+      {/* TODO: mission statement section*/}
+      {/* <Schedule /> */}
+      {/* <Sponsors /> */}
+      {/* TODO: support the summit section. button takes sponsors to a contact form and provides the sponsorship packet */}
       <Organizers />
       <Footer />
     </main>

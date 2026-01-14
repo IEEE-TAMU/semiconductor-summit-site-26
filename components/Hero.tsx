@@ -1,5 +1,5 @@
 'use client';
-
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
@@ -24,34 +24,23 @@ export default function Hero() {
     >
       {/* Background Image Placeholder */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-950/90 via-red-900/80 to-red-950/90" />
-        {/* Replace this div with your background image */}
-        {/* <Image
-          src="/images/hero-background.jpg"
+        <div className="absolute inset-0 bg-linear-to-br from-red-950/90 via-red-900/80 to-red-950/90" />
+        <Image
+          src="/images/bg.jpg"
           alt="IEEE Semiconductor Summit"
           fill
-          className="object-cover"
+          className="object-cover brightness-40"
           priority
-        /> */}
-        <div className="absolute inset-0 bg-[url('/images/hero-background.jpg')] bg-cover bg-center opacity-20" />
+        />
       </div>
 
-      {/* Animated Text Content */}
+      {/* Text Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-6"
-        >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-red-600 via-red-500 to-red-700 bg-clip-text text-transparent animate-gradient">
-              IEEE Semiconductor
-            </span>
-            <br />
-            <span className="text-white">Summit 2026</span>
+        <div className="mb-2">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white">
+            Semiconductor Summit 2026
           </h1>
-        </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -77,13 +66,13 @@ export default function Hero() {
           >
             Learn More
           </a>
-          <a
+          {/* <a
             href="#schedule"
             onClick={(e) => handleSmoothScroll(e, '#schedule')}
             className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-red-900 transition-colors duration-200"
           >
             View Schedule
-          </a>
+          </a> */}
         </motion.div>
       </div>
 
@@ -109,20 +98,6 @@ export default function Hero() {
         </svg>
       </motion.div>
 
-      <style jsx>{`
-        @keyframes gradient {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 3s ease infinite;
-        }
-      `}</style>
     </section>
   );
 }

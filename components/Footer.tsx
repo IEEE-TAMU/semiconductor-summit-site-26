@@ -30,9 +30,7 @@ export default function Footer() {
           >
             <h3 className="text-white font-semibold text-lg mb-4">Contact Us</h3>
             <div className="space-y-2 text-sm">
-              <p>Email: info@ieeesemiconductorsummit.org</p>
-              <p>Phone: (555) 123-4567</p>
-              <p>Address: [Your University Address]</p>
+              <p>Email: events@ieeetamu.org</p>
             </div>
           </motion.div>
 
@@ -94,7 +92,8 @@ export default function Footer() {
             <h3 className="text-white font-semibold text-lg mb-4">Follow Us</h3>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/ieee-tamu"
+                target="_blank"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-800 transition-colors"
                 aria-label="LinkedIn"
               >
@@ -103,25 +102,8 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="#"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-800 transition-colors"
-                aria-label="Twitter"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-800 transition-colors"
-                aria-label="Facebook"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-                </svg>
-              </a>
-              <a
-                href="#"
+                href="https://www.instagram.com/ieee_tamu/"
+                target="_blank"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-800 transition-colors"
                 aria-label="Instagram"
               >
@@ -134,7 +116,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} IEEE Semiconductor Summit. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} IEEE TAMU Student Branch. All rights reserved.</p>
         </div>
       </div>
     </footer>

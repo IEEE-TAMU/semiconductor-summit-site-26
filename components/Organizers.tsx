@@ -1,24 +1,26 @@
 'use client';
+import Image from 'next/image';
 
 import { motion } from 'framer-motion';
 
 // Placeholder organizer data - replace with actual organizer info
 const organizers = [
-  { name: 'John Doe', role: 'Lead Organizer', photo: '/images/organizers/john-doe.jpg' },
-  { name: 'Jane Smith', role: 'Technical Director', photo: '/images/organizers/jane-smith.jpg' },
-  { name: 'Mike Johnson', role: 'Event Coordinator', photo: '/images/organizers/mike-johnson.jpg' },
-  { name: 'Sarah Williams', role: 'Marketing Lead', photo: '/images/organizers/sarah-williams.jpg' },
-  { name: 'David Brown', role: 'Sponsor Relations', photo: '/images/organizers/david-brown.jpg' },
-  { name: 'Emily Davis', role: 'Content Manager', photo: '/images/organizers/emily-davis.jpg' },
-  { name: 'Chris Wilson', role: 'Logistics Coordinator', photo: '/images/organizers/chris-wilson.jpg' },
-  { name: 'Alex Martinez', role: 'Communications', photo: '/images/organizers/alex-martinez.jpg' },
+  { name: 'Alan Jaf', role: 'Summit Co-Chair', photo: '/images/organizers/alan-jaf.jpg' },
+  { name: 'Arju Kafle', role: 'Summit Co-Chair', photo: '/images/organizers/arju-kafle.jpg' },
+  { name: 'Nafi Baksh', role: 'Finance Coordinator', photo: '/images/organizers/nafi-baksh.jpg' },
+  { name: 'Jadon Lee', role: 'Public Relations Coordinator', photo: '/images/organizers/jadon-lee.jpg' },
+  { name: 'Pallavi Gokul', role: 'Outreach Coordinator', photo: '/images/organizers/pallavi-gokul.png' },
+  { name: 'Tanmai Buyyanapragada', role: 'Outreach Coordinator', photo: '/images/organizers/tanmai-buyyanapragada.jpg' },
+
 ];
+
+{/* TODO: IDEA: use transparent bg photos of the organizers and have their face zoom at a different speed than the background (crowd or smth) could look cool and polished */}
 
 export default function Organizers() {
   return (
     <section
       id="organizers"
-      className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden"
+      className="relative py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden"
     >
       {/* Background Image Placeholder */}
       <div className="absolute inset-0 opacity-5">
@@ -38,9 +40,9 @@ export default function Organizers() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Organizers
           </h2>
           <div className="w-24 h-1 bg-red-800 mx-auto mb-4" />
@@ -49,7 +51,7 @@ export default function Organizers() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
           {organizers.map((organizer, index) => (
             <motion.div
               key={index}
@@ -60,26 +62,18 @@ export default function Organizers() {
               className="group"
             >
               <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
-                {/* Photo Placeholder */}
-                <div className="relative w-full h-64 bg-gradient-to-br from-red-600 to-red-800">
-                  {/* Replace with actual organizer photo */}
-                  {/* <Image
+                <div className="relative w-full h-48 bg-linear-to-br from-red-600 to-red-800">
+                  <Image
                     src={organizer.photo}
                     alt={organizer.name}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  /> */}
-                  <div className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
-                    {organizer.name.charAt(0)}
-                  </div>
+                  />
                 </div>
-                <div className="p-4 text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{organizer.name}</h3>
-                  <p className="text-sm text-gray-600">{organizer.role}</p>
-                  <div className="text-xs text-gray-400 mt-2">
-                    {/* Replace with: {organizer.photo} */}
-                    Photo: {organizer.photo}
-                  </div>
+                <div className="p-3 text-center">
+                  <h3 className="text-base font-semibold text-gray-900 mb-1">{organizer.name}</h3>
+                  <p className="text-xs text-gray-600">{organizer.role}</p>
+
                 </div>
               </div>
             </motion.div>
