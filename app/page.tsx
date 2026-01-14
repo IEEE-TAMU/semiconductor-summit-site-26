@@ -17,6 +17,7 @@ import Footer from '@/components/Footer';
  * - more writing for the different sections in about
  * - write that the event is free and open to all somewhere
  * - some link to the IEEE TAMU website
+ * - fix the mobile site
  */
 
 export default function Home() {
