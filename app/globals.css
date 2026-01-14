@@ -56,3 +56,29 @@ html {
 .swiper-pagination-bullet-active {
   opacity: 1 !important;
 }
+
+/* Animated maroon gradient for 2026 */
+@keyframes maroon-gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animated-maroon-gradient {
+  background: linear-gradient(
+    90deg,
+    #800020 0%,
+    #a52a2a 25%,
+    #8b0000 50%,
+    #722f37 75%,
+    #800020 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: maroon-gradient 3s ease infinite;
+}

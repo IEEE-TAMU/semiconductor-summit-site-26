@@ -38,7 +38,7 @@ export default function Hero() {
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <div className="mb-2">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white">
-            Semiconductor Summit 2026
+            Semiconductor Summit <span className="animated-maroon-gradient">2026</span>
           </h1>
         </div>
 
