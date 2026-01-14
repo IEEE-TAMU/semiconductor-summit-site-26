@@ -1,4 +1,5 @@
 'use client';
+import { motion } from 'framer-motion';
 import { useCarousel } from '@/hooks/useCarousel';
 import AboutHeader from './AboutHeader';
 import AboutBackground from './AboutBackground';
@@ -53,6 +54,30 @@ export default function About() {
       className="relative py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden"
     >
       <AboutBackground />
+
+      {/* Floating Attendance Bubble */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        animate={{
+          rotate: [0, -5, 5, -5, 0],
+          y: [0, -10, 10, -10, 0],
+        }}
+        transition={{
+          opacity: { delay: 0.5, type: 'spring', stiffness: 200 },
+          scale: { delay: 0.5, type: 'spring', stiffness: 200 },
+          rotate: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
+          y: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
+        }}
+        className="absolute top-8 left-8 md:top-12 md:left-12 z-20 bg-red-800 text-white px-6 py-4 rounded-2xl shadow-2xl transform rotate-[-8deg]"
+      >
+        <div className="text-center">
+          <div className="text-3xl md:text-4xl font-bold">500+</div>
+          <div className="text-sm md:text-base font-medium">Attendees</div>
+          <div className="text-xs text-red-200 mt-1">Previous Summit</div>
+        </div>
+      </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <AboutHeader />
