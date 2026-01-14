@@ -15,24 +15,24 @@ interface CarouselItem {
 const carouselItems: CarouselItem[] = [
   {
     number: 1,
-    title: 'Visionary Keynotes',
+    title: 'Keynotes',
     description:
       'Gain unique perspectives from a diverse lineup of speakers, including veterans from major tech giants and pioneers from agile startups. We cover the full hardware stack, from logic design to manufacturing.',
-    image: '/images/panel.jpg',
+    image: '/images/speaker.jpg',
   },
   {
     number: 2,
-    title: 'Trend-Focused Panels',
+    title: 'Panels',
     description:
       'Go beyond the headlines with discussions that dissect current trends. Our panels offer a comprehensive look at the technologies driving the semiconductor renaissance.',
-    image: '/images/crowd.jpg',
+    image: '/images/panel.jpg',
   },
   {
     number: 3,
     title: 'Interactive Exhibition',
     description:
       'Experience the industry\'s latest innovations up close. The exhibition hall is the primary hub for networking, offering a dedicated space to meet industry members, discuss new tech, and explore career opportunities.',
-    image: '/images/panel.jpg',
+    image: '/images/interaction.jpg',
   },
 ];
 
@@ -50,7 +50,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden"
+      className="relative py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden"
     >
       <AboutBackground />
 
