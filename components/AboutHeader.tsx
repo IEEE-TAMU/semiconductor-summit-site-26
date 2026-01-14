@@ -8,12 +8,12 @@ export default function AboutHeader() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="text-center mb-16"
+      className="text-center mb-10"
     >
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
         About the Summit
       </h2>
-      <div className="w-24 h-1 bg-red-800 mx-auto" />
+      <div className="w-16 h-1 bg-red-800 mx-auto" />
     </motion.div>
   );
 }

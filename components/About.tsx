@@ -79,11 +79,11 @@ export default function About() {
         </div>
       </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-5xl mx-auto">
         <AboutHeader />
 
         {/* Carousel Section */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           <CarouselContent
             items={carouselItems}
             activeIndex={activeIndex}

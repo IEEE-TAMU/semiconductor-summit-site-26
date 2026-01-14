@@ -27,7 +27,7 @@ export default function CarouselContent({
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="space-y-6"
+      className="space-y-6 max-w-md mx-auto md:mx-0"
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -38,10 +38,10 @@ export default function CarouselContent({
           transition={{ duration: 0.5 }}
           className="space-y-4"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+          <h3 className="text-xl md:text-2xl font-bold text-gray-900">
             {activeItem.title}
           </h3>
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed">
             {activeItem.description}
           </p>
         </motion.div>

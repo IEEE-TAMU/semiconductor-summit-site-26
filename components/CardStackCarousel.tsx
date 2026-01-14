@@ -73,7 +73,7 @@ export default function CardStackCarousel({
       className="space-y-4"
     >
       <div
-        className="relative h-96 md:h-[500px]"
+        className="relative h-60 md:h-72 max-w-md mx-auto"
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
