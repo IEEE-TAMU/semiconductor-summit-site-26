@@ -52,7 +52,7 @@ export default function Footer() {
                   About
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="#schedule"
                   onClick={(e) => handleSmoothScroll(e, '#schedule')}
@@ -60,8 +60,8 @@ export default function Footer() {
                 >
                   Schedule
                 </a>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a
                   href="#sponsors"
                   onClick={(e) => handleSmoothScroll(e, '#sponsors')}
@@ -69,7 +69,7 @@ export default function Footer() {
                 >
                   Sponsors
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="#organizers"
