@@ -146,7 +146,7 @@ export default function Navbar() {
                     </svg>
                   </span>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                    className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent"
                     initial={{ x: '-100%' }}
                     animate={{ x: '200%' }}
                     transition={{ 
@@ -221,7 +221,7 @@ export default function Navbar() {
                   <Link href="/sponsor" onClick={() => setIsMobileMenuOpen(false)}>
                     <motion.button
                       whileTap={{ scale: 0.95 }}
-                      className="w-full px-6 py-3 bg-gradient-to-r from-red-800 via-red-700 to-red-800 text-white font-semibold rounded-lg shadow-lg text-center"
+                      className="w-full px-6 py-3 bg-linear-to-r from-red-800 via-red-700 to-red-800 text-white font-semibold rounded-lg shadow-lg text-center"
                     >
                       Support
                     </motion.button>

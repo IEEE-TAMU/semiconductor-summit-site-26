@@ -12,12 +12,11 @@ import Footer from '@/components/Footer';
 /**
  * 
  * TODO LIST:
- * - page for those interested in sponsoring. collect their contact info and provide the sponsorship packet
  * - button for sign up to speak?
  * - more writing for the different sections in about
- * - some link to the IEEE TAMU website
- * - date on the hero
  * - organizers icons use transparent backgrounds with their face zoomed at a different speed than the background (crowd or smth) could look cool and polished
+ * - countdown to the summit
+ * - schedule updates throughout the day of the event. current event highlighted at top of schedule. schedule is modifiable somehow
  */
 
 export default function Home() {

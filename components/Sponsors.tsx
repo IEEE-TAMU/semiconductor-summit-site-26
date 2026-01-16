@@ -24,7 +24,7 @@ export default function Sponsors() {
   return (
     <section
       id="sponsors"
-      className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white overflow-hidden"
+      className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-gray-50 to-white overflow-hidden"
     >
       {/* Background Image Placeholder */}
       <div className="absolute inset-0 opacity-5">

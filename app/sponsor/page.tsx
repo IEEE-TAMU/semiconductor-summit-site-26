@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import SponsorNavbar from '@/components/SponsorNavbar';
 import Footer from '@/components/Footer';
 
@@ -16,13 +15,14 @@ export default function SponsorPage() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // Convert FormData to URLSearchParams
+    // Convert FormData to URLSearchParams for Netlify Forms
     const params = new URLSearchParams();
     formData.forEach((value, key) => {
       params.append(key, value.toString());
     });
 
     try {
+      // Submit to static endpoint for Netlify Forms (Next.js Runtime v5 migration)
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -45,7 +45,7 @@ export default function SponsorPage() {
       <SponsorNavbar />
       
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-red-950 via-red-900 to-red-950">
+      <section className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-red-950 via-red-900 to-red-950">
         <div className="max-w-7xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -150,8 +150,6 @@ export default function SponsorPage() {
             <form
               name="sponsor-contact"
               method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
               className="bg-white rounded-lg shadow-lg p-6 md:p-8 space-y-6"
             >
