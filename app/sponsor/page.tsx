@@ -20,7 +20,7 @@ export default function SponsorPage() {
       params.append(key, value.toString());
     });
 
-    fetch('/_forms.html', {
+    fetch('/__forms.html', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: params.toString()
