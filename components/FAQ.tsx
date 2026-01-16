@@ -84,7 +84,7 @@ export default function FAQ() {
                 <motion.svg
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
-                  className="w-5 h-5 text-red-800 flex-shrink-0"
+                  className="w-5 h-5 text-red-800 shrink-0"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
