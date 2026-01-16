@@ -54,9 +54,11 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
+        isMobileMenuOpen
+          ? 'bg-white shadow-lg'
+          : scrolled
+            ? 'bg-white backdrop-blur-md shadow-lg'
+            : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +77,7 @@ export default function Navbar() {
                 width={40}
                 height={80}
                 className={`h-8 w-4 md:h-10 md:w-5 object-contain transition-all duration-300 ${
-                  scrolled ? '' : 'invert'
+                  scrolled || isMobileMenuOpen ? '' : 'invert'
                 }`}
               />
             </motion.div>
@@ -86,7 +88,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
               className={`text-lg md:text-xl font-bold transition-colors duration-300 ${
-                scrolled ? 'text-red-800' : 'text-white'
+                scrolled || isMobileMenuOpen ? 'text-red-800' : 'text-white'
               }`}
             >
               IEEE TAMU
@@ -164,7 +166,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`transition-colors duration-200 ${
-                scrolled ? 'text-gray-700 hover:text-red-800' : 'text-white hover:text-gray-200'
+                scrolled || isMobileMenuOpen ? 'text-gray-700 hover:text-red-800' : 'text-white hover:text-gray-200'
               }`}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -188,9 +190,7 @@ export default function Navbar() {
               transition={{ duration: 0.3 }}
               className="md:hidden overflow-hidden"
             >
-              <div className={`py-4 space-y-4 ${
-                scrolled ? 'bg-white/95 backdrop-blur-md' : 'bg-transparent'
-              }`}>
+              <div className="py-4 space-y-4">
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.name}
@@ -201,11 +201,7 @@ export default function Navbar() {
                     <button
                       type="button"
                       onClick={(e) => handleClick(e, item.href)}
-                      className={`w-full text-left px-4 py-2 transition-colors duration-200 font-medium text-sm cursor-pointer ${
-                        scrolled
-                          ? 'text-gray-700 hover:text-red-800 hover:bg-gray-50'
-                          : 'text-white hover:text-gray-200 hover:bg-white/10'
-                      }`}
+                      className="w-full text-left px-4 py-2 transition-colors duration-200 font-medium text-sm cursor-pointer text-gray-700 hover:text-red-800 hover:bg-gray-50"
                     >
                       {item.name}
                     </button>
