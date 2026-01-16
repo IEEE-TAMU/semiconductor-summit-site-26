@@ -49,7 +49,7 @@ export default function Hero() {
           className="mb-6"
         >
           <p className="text-2xl sm:text-3xl md:text-4xl text-white font-semibold">
-            March 27
+            March 26
           </p>
         </motion.div>
 
