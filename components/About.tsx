@@ -70,12 +70,12 @@ export default function About() {
           rotate: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
           y: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
         }}
-        className="absolute top-8 left-8 md:top-12 md:left-12 z-20 bg-red-800 text-white px-6 py-4 rounded-2xl shadow-2xl transform rotate-[-8deg]"
+        className="absolute top-24 right-8 md:top-12 md:left-12 md:right-auto z-20 bg-red-800 text-white px-2 py-2 md:px-6 md:py-4 rounded-2xl shadow-2xl transform md:rotate-[-8deg] rotate-[8deg]"
       >
         <div className="text-center">
-          <div className="text-3xl md:text-4xl font-bold">500+</div>
-          <div className="text-sm md:text-base font-medium">Attendees</div>
-          <div className="text-xs text-red-200 mt-1">Previous Summit</div>
+          <div className="text-xl md:text-4xl font-bold">500+</div>
+          <div className="text-xs md:text-base font-medium">Attendees</div>
+          <div className="text-[10px] text-x text-red-200 mt-1">Previous Summit</div>
         </div>
       </motion.div>
 
