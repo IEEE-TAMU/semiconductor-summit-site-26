@@ -95,7 +95,7 @@ export default function SponsorPage() {
             </h3>
             <div className="bg-gray-100 rounded-lg p-4 md:p-8 shadow-lg">
               <div className="aspect-[8.5/11] w-full max-w-4xl mx-auto">
-                <iframe
+                <embed
                   src="/sponsorship-packet.pdf"
                   className="w-full h-full rounded-lg border-2 border-gray-300"
                   title="Sponsorship Packet PDF"

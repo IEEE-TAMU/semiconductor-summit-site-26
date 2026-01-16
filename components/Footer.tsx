@@ -4,6 +4,12 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Only do smooth scroll if we're on the root page
+    if (window.location.pathname !== '/') {
+      // Let the browser navigate to the root page with the anchor
+      return;
+    }
+    
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
@@ -45,7 +51,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="#about"
+                  href="/#about"
                   onClick={(e) => handleSmoothScroll(e, '#about')}
                   className="hover:text-red-500 transition-colors cursor-pointer"
                 >
@@ -54,7 +60,7 @@ export default function Footer() {
               </li>
               {/* <li>
                 <a
-                  href="#schedule"
+                  href="/#schedule"
                   onClick={(e) => handleSmoothScroll(e, '#schedule')}
                   className="hover:text-red-500 transition-colors cursor-pointer"
                 >
@@ -63,7 +69,7 @@ export default function Footer() {
               </li> */}
               {/* <li>
                 <a
-                  href="#sponsors"
+                  href="/#sponsors"
                   onClick={(e) => handleSmoothScroll(e, '#sponsors')}
                   className="hover:text-red-500 transition-colors cursor-pointer"
                 >
@@ -72,7 +78,7 @@ export default function Footer() {
               </li> */}
               <li>
                 <a
-                  href="#organizers"
+                  href="/#organizers"
                   onClick={(e) => handleSmoothScroll(e, '#organizers')}
                   className="hover:text-red-500 transition-colors cursor-pointer"
                 >
