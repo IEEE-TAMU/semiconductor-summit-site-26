@@ -64,7 +64,7 @@ export default function SponsorPage() {
       </section>
 
       {/* Sponsorship Materials Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -82,7 +82,7 @@ export default function SponsorPage() {
             </p>
           </motion.div>
 
-          {/* PDF Viewer Section */}
+          {/* PDF Viewer Section *
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ export default function SponsorPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Form Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
