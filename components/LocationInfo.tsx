@@ -87,7 +87,7 @@ export default function LocationInfo() {
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Date & Time</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    <span className="font-semibold">Date:</span> March 27, 2026<br />
+                    <span className="font-semibold">Date:</span> March 26, 2026<br />
                     <span className="font-semibold">Time:</span> 9:00 AM - 5:00 PM
                   </p>
                 </div>
