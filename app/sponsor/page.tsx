@@ -8,36 +8,32 @@ import Footer from '@/components/Footer';
 export default function SponsorPage() {
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setFormState('submitting');
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    // Convert FormData to URLSearchParams for Netlify Forms
+    const myForm = event.target as HTMLFormElement;
+    const formData = new FormData(myForm);
     const params = new URLSearchParams();
+    
     formData.forEach((value, key) => {
       params.append(key, value.toString());
     });
 
-    try {
-      // Submit to static endpoint for Netlify Forms (Next.js Runtime v5 migration)
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: params.toString(),
-      });
-
-      if (response.ok) {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
+    })
+      .then(() => {
+        console.log('Form successfully submitted');
         setFormState('success');
-        form.reset();
-      } else {
+        myForm.reset();
+      })
+      .catch((error) => {
+        console.error('Form submission error:', error);
         setFormState('error');
-      }
-    } catch {
-      setFormState('error');
-    }
+      });
   };
 
   return (
