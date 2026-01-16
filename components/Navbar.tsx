@@ -211,7 +211,7 @@ export default function Navbar() {
                     </button>
                   </motion.div>
                 ))}
-                {/* Mobile Support Button */}
+                {/* Mobile Sponsor Button */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -223,7 +223,7 @@ export default function Navbar() {
                       whileTap={{ scale: 0.95 }}
                       className="w-full px-6 py-3 bg-linear-to-r from-red-800 via-red-700 to-red-800 text-white font-semibold rounded-lg shadow-lg text-center"
                     >
-                      Support
+                      Sponsor
                     </motion.button>
                   </Link>
                 </motion.div>
