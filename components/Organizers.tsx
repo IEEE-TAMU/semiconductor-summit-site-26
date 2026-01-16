@@ -20,7 +20,7 @@ export default function Organizers() {
   return (
     <section
       id="organizers"
-      className="relative py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden"
+      className="relative py-8 md:py-10 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden"
     >
       {/* Background Image Placeholder */}
       <div className="absolute inset-0 opacity-5">
@@ -40,18 +40,18 @@ export default function Organizers() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-10"
+          className="text-center mb-6"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
             Organizers
           </h2>
-          <div className="w-24 h-1 bg-red-800 mx-auto mb-4" />
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-red-800 mx-auto mb-2" />
+          <p className="text-base text-gray-600 max-w-2xl mx-auto">
             Meet the team behind the IEEE Semiconductor Summit
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-3 gap-3 md:gap-4 max-w-3xl mx-auto">
           {organizers.map((organizer, index) => (
             <motion.div
               key={index}
@@ -62,7 +62,7 @@ export default function Organizers() {
               className="group"
             >
               <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
-                <div className="relative w-full h-48 bg-linear-to-br from-red-600 to-red-800">
+                <div className="relative w-full h-32 md:h-36 bg-linear-to-br from-red-600 to-red-800">
                   <Image
                     src={organizer.photo}
                     alt={organizer.name}
@@ -70,8 +70,8 @@ export default function Organizers() {
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-3 text-center">
-                  <h3 className="text-base font-semibold text-gray-900 mb-1">{organizer.name}</h3>
+                <div className="p-2 text-center">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-0.5">{organizer.name}</h3>
                   <p className="text-xs text-gray-600">{organizer.role}</p>
 
                 </div>
@@ -79,6 +79,26 @@ export default function Organizers() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center mt-6"
+        >
+          <p className="text-gray-600 text-sm md:text-base">
+            and special thanks to the{' '}
+            <a
+              href="https://ieeetamu.org/about/officers"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-red-800 hover:text-red-900 underline transition-colors duration-200"
+            >
+              IEEE TAMU team
+            </a>
+          </p>
+        </motion.div>
       </div>
     </section>
   );

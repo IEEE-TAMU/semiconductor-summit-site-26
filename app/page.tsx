@@ -5,6 +5,7 @@ import About from '@/components/About';
 import Schedule from '@/components/Schedule';
 import Sponsors from '@/components/Sponsors';
 import Organizers from '@/components/Organizers';
+import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 
 /**
@@ -30,6 +31,7 @@ export default function Home() {
       {/* <Schedule /> */}
       {/* <Sponsors /> */}
       {/* TODO: support the summit section. button takes sponsors to a contact form and provides the sponsorship packet */}
+      <FAQ />
       <Organizers />
       <Footer />
     </main>
