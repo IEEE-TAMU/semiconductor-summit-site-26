@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 
 const navItems = [
@@ -107,7 +108,7 @@ export default function Navbar() {
               )}
             </AnimatePresence>
           </div>
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
@@ -126,6 +127,38 @@ export default function Navbar() {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-800 transition-all duration-300 group-hover:w-full" />
               </motion.a>
             ))}
+            {/* Support Button */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 + navItems.length * 0.1 }}
+            >
+              <Link href="/sponsor">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative px-6 py-2.5 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group animated-maroon-button"
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    Sponsor
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                    initial={{ x: '-100%' }}
+                    animate={{ x: '200%' }}
+                    transition={{ 
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatDelay: 1,
+                      ease: 'easeInOut'
+                    }}
+                  />
+                </motion.button>
+              </Link>
+            </motion.div>
           </div>
           <div className="md:hidden">
             <button
@@ -178,6 +211,22 @@ export default function Navbar() {
                     </button>
                   </motion.div>
                 ))}
+                {/* Mobile Support Button */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navItems.length * 0.1 }}
+                  className="px-4"
+                >
+                  <Link href="/sponsor" onClick={() => setIsMobileMenuOpen(false)}>
+                    <motion.button
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full px-6 py-3 bg-gradient-to-r from-red-800 via-red-700 to-red-800 text-white font-semibold rounded-lg shadow-lg text-center"
+                    >
+                      Support
+                    </motion.button>
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
           )}

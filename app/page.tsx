@@ -17,6 +17,7 @@ import Footer from '@/components/Footer';
  * - more writing for the different sections in about
  * - some link to the IEEE TAMU website
  * - date on the hero
+ * - organizers icons use transparent backgrounds with their face zoomed at a different speed than the background (crowd or smth) could look cool and polished
  */
 
 export default function Home() {

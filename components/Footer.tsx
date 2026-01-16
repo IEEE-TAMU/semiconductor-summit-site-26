@@ -79,6 +79,15 @@ export default function Footer() {
                   Organizers
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://ieeetamu.org"
+                  target="_blank"
+                  className="hover:text-red-500 transition-colors cursor-pointer"
+                >
+                  IEEE TAMU
+                </a>
+              </li>
             </ul>
           </motion.div>
 
