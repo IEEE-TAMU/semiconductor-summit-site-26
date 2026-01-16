@@ -94,7 +94,7 @@ export default function Navbar() {
               IEEE TAMU
             </motion.span>
 
-            {/* Semiconductor Summit 2026 - Appears when scrolled */}
+            {/* Semiconductor Summit 2026 - Appears when scrolled (hidden on mobile) */}
             <AnimatePresence>
               {isScrolledPastThreshold && (
                 <motion.span
@@ -103,7 +103,7 @@ export default function Navbar() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3, layout: { duration: 0.5 } }}
-                  className="text-lg md:text-xl font-bold text-red-800"
+                  className="hidden md:inline text-lg md:text-xl font-bold text-red-800"
                 >
                   Semiconductor Summit 2026
                 </motion.span>
