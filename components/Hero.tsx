@@ -43,6 +43,17 @@ export default function Hero() {
         </div>
 
         <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+          className="mb-6"
+        >
+          <p className="text-2xl sm:text-3xl md:text-4xl text-white font-semibold">
+            March 27
+          </p>
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
