@@ -152,6 +152,7 @@ export default function SponsorPage() {
               method="POST"
               onSubmit={handleSubmit}
               className="bg-white rounded-lg shadow-lg p-6 md:p-8 space-y-6"
+              data-netlify="true"
             >
               <input type="hidden" name="form-name" value="sponsor-contact" />
               <input type="hidden" name="bot-field" />
