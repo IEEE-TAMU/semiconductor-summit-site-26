@@ -1,6 +1,6 @@
 # IF CONTRIBUTING
 
-create a branch and push all changes to the branch (not main). pushes to main will trigger netlify builds which use build time. 
+create a branch off of dev branch and push all changes to the branch. pushes to main will trigger netlify builds which use build time. 
 
 Getting Started
 
