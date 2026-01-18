@@ -4,39 +4,89 @@ import { motion } from 'framer-motion';
 
 const scheduleItems = [
   {
-    time: '8:00 AM',
-    title: 'Registration & Breakfast',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Welcome reception with networking opportunities.',
-  },
-  {
     time: '9:00 AM',
-    title: 'Opening Keynote',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Industry leaders discuss the future of semiconductors.',
+    title: 'Registration & Networking',
+    description: 'Event check in and networking with sponsors and attendees. Breakfast options available.',
   },
   {
-    time: '10:30 AM',
-    title: 'Panel Discussion: Innovation in Chip Design',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Experts share insights on cutting-edge technologies.',
+    time: '10:00 AM',
+    title: 'Welcome Remarks',
+    description: 'Welcome remarks from the event organizers and sponsors.',
+  },
+  {
+    time: '10:20 AM',
+    title: 'Keynote Speaker',
+    description: 'Speaker details to be announced.',
+  },
+  {
+    time: '10:45 AM',
+    title: 'Speaker',
+    description: 'Speaker details to be announced.',
+  },
+  {
+    time: '11:00 AM',
+    title: 'Break',
+    description: '',
+  },
+  {
+    time: '11:15 AM',
+    title: 'Panel or Breakout Sessions',
+    description: 'Panel details to be announced.',
   },
   {
     time: '12:00 PM',
-    title: 'Lunch Break',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Networking lunch with sponsors and attendees.',
+    title: 'Networking Lunch',
+    description: 'Networking lunch with sponsors and attendees.',
+  },
+  {
+    time: '1:05 PM',
+    title: 'Keynote Speaker',
+    description: 'Speaker details to be announced.',
   },
   {
     time: '1:30 PM',
-    title: 'Technical Workshops',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hands-on sessions covering various semiconductor topics.',
+    title: 'Panel, Breakout Session, or Workshop',
+    description: 'Session details to be announced.',
   },
   {
-    time: '3:00 PM',
-    title: 'Startup Showcase',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Emerging companies present their innovations.',
+    time: '2:00 PM',
+    title: 'Exhibition Hall Focus/Networking',
+    description: 'Explore the exhibition hall and network with exhibitors.',
   },
   {
-    time: '4:30 PM',
-    title: 'Closing Remarks & Networking',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Final thoughts and opportunities to connect.',
+    time: '2:35 PM',
+    title: 'Speaker',
+    description: 'Speaker details to be announced.',
+  },
+  {
+    time: '2:50 PM',
+    title: 'Break',
+    description: '',
+  },
+  {
+    time: '3:05 PM',
+    title: 'Speaker',
+    description: 'Speaker details to be announced.',
+  },
+  {
+    time: '3:30 PM',
+    title: 'Panel',
+    description: 'Panel details to be announced.',
+  },
+  {
+    time: '3:50 PM',
+    title: 'Student Research Spotlight',
+    description: 'Showcasing student research and innovations.',
+  },
+  {
+    time: '4:35 PM',
+    title: 'Closing Remarks',
+    description: 'Final thoughts and wrap-up from event organizers.',
+  },
+  {
+    time: '4:45 PM',
+    title: 'Networking Reception',
+    description: 'Cocktail appetizers and networking reception.',
   },
 ];
 
@@ -44,71 +94,47 @@ export default function Schedule() {
   return (
     <section
       id="schedule"
-      className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden"
+      className="relative py-8 md:py-12 px-4 sm:px-6 lg:px-8 bg-white"
     >
-      {/* Background Image Placeholder */}
-      <div className="absolute inset-0 opacity-5">
-        {/* Replace this div with your background image */}
-        {/* <Image
-          src="/images/schedule-background.jpg"
-          alt=""
-          fill
-          className="object-cover"
-        /> */}
-        <div className="absolute inset-0 bg-[url('/images/schedule-background.jpg')] bg-cover bg-center" />
-      </div>
-
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-8"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
             Schedule
           </h2>
-          <div className="w-24 h-1 bg-red-800 mx-auto" />
+          <div className="w-16 h-0.5 bg-red-800 mx-auto" />
         </motion.div>
 
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-red-300 transform md:-translate-x-1/2" />
+        <div className="text-center mb-8">
+          NOTE: The schedule will be updated as we get closer to the event.
+        </div>
 
-          {/* Schedule Items */}
-          <div className="space-y-12">
-            {scheduleItems.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`relative flex items-center ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
-              >
-                {/* Timeline Dot */}
-                <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-red-800 rounded-full border-4 border-white shadow-lg transform md:-translate-x-1/2 z-10" />
-
-                {/* Content Card */}
-                <div
-                  className={`w-full md:w-5/12 ml-16 md:ml-0 ${
-                    index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
-                  }`}
-                >
-                  <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-red-800">
-                    <div className="flex items-center gap-4 mb-3">
-                      <span className="text-red-800 font-bold text-lg">{item.time}</span>
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                  </div>
+        <div className="space-y-0">
+          {scheduleItems.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="border-b border-gray-200 last:border-b-0 py-3"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
+                <div className="shrink-0 w-20 sm:w-24">
+                  <span className="text-red-800 font-semibold text-sm">{item.time}</span>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-base font-semibold text-gray-900 mb-1">{item.title}</h3>
+                  <p className="text-gray-600 text-sm leading-snug">{item.description}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
