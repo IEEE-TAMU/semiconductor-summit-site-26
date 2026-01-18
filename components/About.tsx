@@ -55,32 +55,169 @@ export default function About() {
     >
       <AboutBackground />
 
-      {/* Floating Attendance Bubble */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        animate={{
-          rotate: [0, -5, 5, -5, 0],
-          y: [0, -10, 10, -10, 0],
-        }}
-        transition={{
-          opacity: { delay: 0.5, type: 'spring', stiffness: 200 },
-          scale: { delay: 0.5, type: 'spring', stiffness: 200 },
-          rotate: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
-          y: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
-        }}
-        className="absolute top-24 right-8 md:top-12 md:left-12 md:right-auto z-20 bg-red-800 text-white px-2 py-2 md:px-6 md:py-4 rounded-2xl shadow-2xl transform md:rotate-[-8deg] rotate-[8deg]"
-      >
-        <div className="text-center">
-          <div className="text-xl md:text-4xl font-bold">500+</div>
-          <div className="text-xs md:text-base font-medium">Attendees</div>
-          <div className="text-[10px] text-x text-red-200 mt-1">Previous Summit</div>
-        </div>
-      </motion.div>
-
       <div className="relative z-10 max-w-5xl mx-auto">
         <AboutHeader />
+
+        {/* Prominent Stats Row */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative mb-16 md:mb-20"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {/* 500+ Attendees Stat */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="relative overflow-hidden bg-gradient-to-br from-red-50 via-white to-red-50 rounded-2xl shadow-2xl border-4 border-red-200 p-6 md:p-8 lg:p-10">
+                {/* Subtle background pattern */}
+                <div className="absolute inset-0 opacity-[0.03]">
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: `radial-gradient(circle at 2px 2px, rgb(220 38 38) 1px, transparent 0)`,
+                    backgroundSize: '40px 40px'
+                  }} />
+                </div>
+                
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  {/* Large number with gradient */}
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.5, type: 'spring', stiffness: 200 }}
+                  >
+                    <div className="relative">
+                      <div className="text-6xl md:text-7xl lg:text-8xl font-black leading-none bg-gradient-to-br from-red-600 via-red-700 to-red-800 bg-clip-text text-transparent">
+                        500+
+                      </div>
+                      {/* Glow effect */}
+                      <div className="absolute inset-0 text-6xl md:text-7xl lg:text-8xl font-black leading-none text-red-400/20 blur-xl">
+                        500+
+                      </div>
+                    </div>
+                  </motion.div>
+                  
+                  {/* Text content */}
+                  <div className="mt-4">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 tracking-tight">
+                      Attendees
+                    </h3>
+                    <p className="text-sm md:text-base text-gray-600 font-semibold mb-3">
+                      Previous Summit
+                    </p>
+                    <div className="flex items-center justify-center gap-2">
+                      <motion.div 
+                        className="w-12 h-1.5 bg-red-800 rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '3rem' }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.7 }}
+                      />
+                      <motion.div 
+                        className="w-8 h-1.5 bg-red-600 rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '2rem' }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.8 }}
+                      />
+                      <motion.div 
+                        className="w-5 h-1.5 bg-red-400 rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '1.25rem' }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.9 }}
+                      />
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Decorative gradient orbs */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-red-300 rounded-full blur-3xl opacity-30" />
+                <div className="absolute bottom-0 left-0 w-28 h-28 bg-red-200 rounded-full blur-3xl opacity-25" />
+              </div>
+            </motion.div>
+
+            {/* 15+ Companies Stat */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <div className="relative overflow-hidden bg-gradient-to-br from-red-50 via-white to-red-50 rounded-2xl shadow-2xl border-4 border-red-200 p-6 md:p-8 lg:p-10">
+                {/* Subtle background pattern */}
+                <div className="absolute inset-0 opacity-[0.03]">
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: `radial-gradient(circle at 2px 2px, rgb(220 38 38) 1px, transparent 0)`,
+                    backgroundSize: '40px 40px'
+                  }} />
+                </div>
+                
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  {/* Large number with gradient */}
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.6, type: 'spring', stiffness: 200 }}
+                  >
+                    <div className="relative">
+                      <div className="text-6xl md:text-7xl lg:text-8xl font-black leading-none bg-gradient-to-br from-red-600 via-red-700 to-red-800 bg-clip-text text-transparent">
+                        15+
+                      </div>
+                      {/* Glow effect */}
+                      <div className="absolute inset-0 text-6xl md:text-7xl lg:text-8xl font-black leading-none text-red-400/20 blur-xl">
+                        15+
+                      </div>
+                    </div>
+                  </motion.div>
+                  
+                  {/* Text content */}
+                  <div className="mt-4">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 tracking-tight">
+                      Companies
+                    </h3>
+                    <p className="text-sm md:text-base text-gray-600 font-semibold mb-3">
+                      Participating
+                    </p>
+                    <div className="flex items-center justify-center gap-2">
+                      <motion.div 
+                        className="w-12 h-1.5 bg-red-800 rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '3rem' }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.8 }}
+                      />
+                      <motion.div 
+                        className="w-8 h-1.5 bg-red-600 rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '2rem' }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.9 }}
+                      />
+                      <motion.div 
+                        className="w-5 h-1.5 bg-red-400 rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '1.25rem' }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 1.0 }}
+                      />
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Decorative gradient orbs */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-red-300 rounded-full blur-3xl opacity-30" />
+                <div className="absolute bottom-0 left-0 w-28 h-28 bg-red-200 rounded-full blur-3xl opacity-25" />
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
 
         {/* Carousel Section */}
         <div className="grid md:grid-cols-2 gap-8 items-center">
