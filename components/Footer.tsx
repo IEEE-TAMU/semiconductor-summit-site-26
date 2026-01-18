@@ -36,7 +36,7 @@ export default function Footer() {
           >
             <h3 className="text-white font-semibold text-lg mb-4">Contact Us</h3>
             <div className="space-y-2 text-sm">
-              <p>Email: events@ieeetamu.org</p>
+              <p>Email: <a href="mailto:events@ieeetamu.org" className="hover:text-red-500 transition-colors">events@ieeetamu.org</a></p>
             </div>
           </motion.div>
 
