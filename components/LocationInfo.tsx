@@ -94,6 +94,99 @@ export default function LocationInfo() {
               </div>
             </div>
 
+            {/* Travel & Accommodations */}
+            <div className="space-y-4">
+              <div className="flex items-start gap-4">
+                <div className="mt-1 p-2 bg-red-800 rounded-lg">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Travel & Accommodations</h3>
+                  <div className="space-y-4 text-gray-700 leading-relaxed">
+                    {/* Texas A&M Hotel */}
+                    <div className="bg-red-50 rounded-lg p-4 border border-red-200">
+                      <p className="font-semibold text-gray-900 mb-2">Texas A&M Hotel & Conference Center</p>
+                      <p className="text-sm mb-2">Located directly on campus, across from Kyle Field</p>
+                      <p className="text-sm mb-1">
+                        <span className="font-medium">Address:</span> 177 Joe Routt Blvd, College Station, TX 77843
+                      </p>
+                      <p className="text-sm mb-1">
+                        <span className="font-medium">Phone:</span>{' '}
+                        <a href="tel:9792602235" className="text-red-800 hover:text-red-900 underline">
+                          979-260-2235
+                        </a>
+                      </p>
+                      <a
+                        href="https://www.texasamhotelcc.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-2 text-sm text-red-800 hover:text-red-900 font-medium underline"
+                      >
+                        Visit Website →
+                      </a>
+                    </div>
+
+                    {/* Nearby Hotels */}
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-3">Nearby Hotels</p>
+                      <div className="space-y-3">
+                        <div>
+                          <p className="font-medium mb-1">Hilton College Station & Conference Center</p>
+                          <p className="text-sm text-gray-600">0.8 miles from campus</p>
+                          <a
+                            href="https://www.google.com/maps/search/?api=1&query=Hilton+College+Station+Conference+Center"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-red-800 hover:text-red-900 underline"
+                          >
+                            View on Map →
+                          </a>
+                        </div>
+                        <div>
+                          <p className="font-medium mb-1">Embassy Suites by Hilton College Station</p>
+                          <p className="text-sm text-gray-600">1.2 miles from campus</p>
+                          <a
+                            href="https://www.google.com/maps/search/?api=1&query=Embassy+Suites+College+Station"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-red-800 hover:text-red-900 underline"
+                          >
+                            View on Map →
+                          </a>
+                        </div>
+                        <div>
+                          <p className="font-medium mb-1">Hampton Inn & Suites College Station</p>
+                          <p className="text-sm text-gray-600">1.5 miles from campus</p>
+                          <a
+                            href="https://www.google.com/maps/search/?api=1&query=Hampton+Inn+Suites+College+Station"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-red-800 hover:text-red-900 underline"
+                          >
+                            View on Map →
+                          </a>
+                        </div>
+                        <div>
+                          <p className="font-medium mb-1">Courtyard by Marriott College Station</p>
+                          <p className="text-sm text-gray-600">1.3 miles from campus</p>
+                          <a
+                            href="https://www.google.com/maps/search/?api=1&query=Courtyard+Marriott+College+Station"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-red-800 hover:text-red-900 underline"
+                          >
+                            View on Map →
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Parking Information */}
             <div className="space-y-4">
               <div className="flex items-start gap-4">
