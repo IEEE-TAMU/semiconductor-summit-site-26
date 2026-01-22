@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
+import Image from 'next/image';
+import Link from 'next/link';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -10,14 +12,21 @@ import 'swiper/css/pagination';
 
 // Placeholder sponsor data - replace with actual sponsor logos
 const sponsors = [
-  { name: 'Sponsor 1', logo: '/images/sponsors/sponsor1.png' },
-  { name: 'Sponsor 2', logo: '/images/sponsors/sponsor2.png' },
-  { name: 'Sponsor 3', logo: '/images/sponsors/sponsor3.png' },
-  { name: 'Sponsor 4', logo: '/images/sponsors/sponsor4.png' },
-  { name: 'Sponsor 5', logo: '/images/sponsors/sponsor5.png' },
-  { name: 'Sponsor 6', logo: '/images/sponsors/sponsor6.png' },
-  { name: 'Sponsor 7', logo: '/images/sponsors/sponsor7.png' },
-  { name: 'Sponsor 8', logo: '/images/sponsors/sponsor8.png' },
+  { name: 'Arm', logo: '/images/sponsors/arm.png', url: 'https://www.arm.com' },
+  { name: 'Cadence', logo: '/images/sponsors/cadence.png', url: 'https://www.cadence.com' },
+  { name: 'Texas Instruments', logo: '/images/sponsors/TI.png', url: 'https://www.ti.com' },
+  { name: 'Circuits & Systems Society (CAS)', logo: '/images/sponsors/CAS.gif', url: 'https://www.ieee-cas.org' },
+  { name: 'Falcomm', logo: '/images/sponsors/FALCOMM.svg', url: 'https://www.falcomm.com' },
+  { name: 'IEEE USA', logo: '/images/sponsors/IEEE-USA.png', url: 'https://www.ieeeusa.org' },
+  { name: 'Infineon', logo: '/images/sponsors/infineon.png', url: 'https://www.infineon.com' },
+  { name: 'Keysight Technologies', logo: '/images/sponsors/keysight.png', url: 'https://www.keysight.com' },
+  { name: 'Micron', logo: '/images/sponsors/micron.png', url: 'https://www.micron.com' },
+  { name: 'MathWorks', logo: '/images/sponsors/MathWorks.png', url: 'https://www.mathworks.com' },
+  { name: 'Microwave Theory and Technology Society (MTT-S)', logo: '/images/sponsors/MTT-S.webp', url: 'https://mtt.org' },
+  { name: 'NASA', logo: '/images/sponsors/NASA.png', url: 'https://www.nasa.gov' },
+  { name: 'TAMU Department of Electrical and Computer Engineering', logo: '/images/sponsors/TAMU-ECEN.png', url: 'https://engineering.tamu.edu/electrical' },
+  { name: 'TAMU Semiconductor Institute', logo: '/images/sponsors/TAMU-semiconductor-inst.png', url: 'https://engineering.tamu.edu/semiconductor' },
+  { name: 'IEEE TAMU', logo: '/images/logo-black-no-circle.svg', url: 'https://ieeetamu.org' }
 ];
 
 export default function Sponsors() {
@@ -47,11 +56,11 @@ export default function Sponsors() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-            Our Sponsors
+            Previous Partners
           </h2>
           <div className="w-24 h-1 bg-red-800 mx-auto mb-4" />
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We are grateful to our sponsors for their support in making this event possible.
+            We are grateful to our sponsors and partners for their support in making the 2025 IEEE Semiconductor Summit a success.
           </p>
         </motion.div>
 
@@ -92,24 +101,28 @@ export default function Sponsors() {
           >
             {sponsors.map((sponsor, index) => (
               <SwiperSlide key={index}>
-                <div className="flex items-center justify-center h-32 md:h-40 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 p-6">
-                  {/* Replace with actual sponsor logo */}
-                  {/* <Image
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    width={200}
-                    height={80}
-                    className="object-contain max-w-full max-h-full"
-                  /> */}
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-400 mb-2">{sponsor.name}</div>
-                    <div className="text-xs text-gray-500">Logo Placeholder</div>
-                    <div className="text-xs text-gray-400 mt-1">
-                      {/* Replace with: {sponsor.logo} */}
-                      /images/sponsors/{sponsor.name.toLowerCase().replace(' ', '')}.png
+                <Link
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 p-6 min-h-[180px] cursor-pointer">
+                    <div className="flex-1 flex items-center justify-center w-full mb-4">
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        width={200}
+                        height={80}
+                        className="object-contain max-w-full max-h-24 w-auto h-auto"
+                      />
+                    </div>
+                    <div className="text-center mt-auto">
+                      <div className="text-sm font-semibold text-gray-700 mb-1">{sponsor.name}</div>
+                      <div className="text-xs text-gray-500">2025 Partner</div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>

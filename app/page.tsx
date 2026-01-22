@@ -26,7 +26,7 @@ export default function Home() {
       <About />
       <LocationInfo />
       <Schedule />
-      {/* <Sponsors /> */}
+      <Sponsors />
       {/* TODO: support the summit section. button takes sponsors to a contact form and provides the sponsorship packet */}
       <FAQ />
       <Organizers />
