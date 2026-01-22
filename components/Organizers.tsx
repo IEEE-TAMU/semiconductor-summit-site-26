@@ -62,7 +62,7 @@ export default function Organizers() {
               className="group"
             >
               <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
-                <div className="relative w-full h-32 md:h-36 bg-linear-to-br from-red-600 to-red-800">
+                <div className="relative w-full h-40 md:h-48 bg-linear-to-br from-red-600 to-red-800">
                   <Image
                     src={organizer.photo}
                     alt={organizer.name}
