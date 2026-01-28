@@ -10,7 +10,6 @@ import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-// Placeholder sponsor data - replace with actual sponsor logos
 const sponsors = [
   { name: 'Arm', logo: '/images/sponsors/arm.png', url: 'https://www.arm.com' },
   { name: 'Cadence', logo: '/images/sponsors/cadence.png', url: 'https://www.cadence.com' },
