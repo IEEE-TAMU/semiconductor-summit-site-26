@@ -2,12 +2,17 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter, usePathname } from 'next/navigation';
 
 export default function Footer() {
+  const router = useRouter();
+  const pathname = usePathname();
+  
   const handleSmoothScroll = (e: React.MouseEvent<HTMLElement>, href: string) => {
-    // Only do smooth scroll if we're on the root page
-    if (window.location.pathname !== '/') {
-      // Let the browser navigate to the root page with the anchor
+    // If we're not on the root page, navigate to root page with hash
+    if (pathname !== '/') {
+      e.preventDefault();
+      router.push(`/${href}`);
       return;
     }
     
@@ -84,6 +89,14 @@ export default function Footer() {
                   className="hover:text-red-500 transition-colors cursor-pointer"
                 >
                   Organizers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/gallery"
+                  className="hover:text-red-500 transition-colors cursor-pointer"
+                >
+                  Gallery
                 </Link>
               </li>
               <li>

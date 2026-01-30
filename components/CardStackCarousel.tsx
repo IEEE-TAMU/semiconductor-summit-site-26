@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 interface CarouselItem {
@@ -161,6 +162,19 @@ export default function CardStackCarousel({
             />
           </svg>
         </button>
+      </div>
+
+      {/* View Full Gallery Link */}
+      <div className="flex justify-center mt-4">
+        <Link href="/gallery">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-2.5 text-red-800 font-semibold rounded-lg border-2 border-red-800 hover:bg-red-800 hover:text-white transition-all duration-200 shadow-md hover:shadow-lg"
+          >
+            View Full Gallery
+          </motion.button>
+        </Link>
       </div>
     </motion.div>
   );
