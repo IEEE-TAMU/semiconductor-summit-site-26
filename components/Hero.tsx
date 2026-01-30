@@ -57,10 +57,21 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-4"
+        >
+          <p className="text-xl sm:text-xl md:text-2xl text-gray-200 font-light">
+            The Largest Student-Run Semiconductor Summit in the Nation
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
           className="mb-8"
         >
-          <p className="text-xl sm:text-2xl md:text-3xl text-gray-200 font-light">
-            The Largest Student-Run Semiconductor Summit in the Nation
+          <p className="text-lg sm:text-xl md:text-2xl font-medium tracking-wide bg-white/20 backdrop-blur-md border border-white/30 text-white px-6 py-3 rounded-lg inline-block shadow-lg">
+            Accelerating AI through Semiconductor Innovations
           </p>
         </motion.div>
 
