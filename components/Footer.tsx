@@ -1,9 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Footer() {
-  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLElement>, href: string) => {
     // Only do smooth scroll if we're on the root page
     if (window.location.pathname !== '/') {
       // Let the browser navigate to the root page with the anchor
@@ -50,40 +51,40 @@ export default function Footer() {
             <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a
+                <Link
                   href="/#about"
                   onClick={(e) => handleSmoothScroll(e, '#about')}
                   className="hover:text-red-500 transition-colors cursor-pointer"
                 >
                   About
-                </a>
+                </Link>
               </li>
-              {/* <li>
-                <a
+              <li>
+                <Link
                   href="/#schedule"
                   onClick={(e) => handleSmoothScroll(e, '#schedule')}
                   className="hover:text-red-500 transition-colors cursor-pointer"
                 >
                   Schedule
-                </a>
-              </li> */}
-              {/* <li>
-                <a
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/#sponsors"
                   onClick={(e) => handleSmoothScroll(e, '#sponsors')}
                   className="hover:text-red-500 transition-colors cursor-pointer"
                 >
                   Sponsors
-                </a>
-              </li> */}
+                </Link>
+              </li>
               <li>
-                <a
+                <Link
                   href="/#organizers"
                   onClick={(e) => handleSmoothScroll(e, '#organizers')}
                   className="hover:text-red-500 transition-colors cursor-pointer"
                 >
                   Organizers
-                </a>
+                </Link>
               </li>
               <li>
                 <a
