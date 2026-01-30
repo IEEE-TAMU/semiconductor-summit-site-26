@@ -2,10 +2,16 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['m.psecn.photoshelter.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'm.psecn.photoshelter.com',
+        pathname: '/**',
+      },
+    ],
+    // Uncomment the line below if images still don't load on Netlify
+    // unoptimized: true,
   },
 };
-
-module.exports = nextConfig;
 
 export default nextConfig;
