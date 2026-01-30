@@ -4,17 +4,21 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter, usePathname } from 'next/navigation';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 
 const navItems = [
   // { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
-  // { name: 'Schedule', href: '#schedule' },
-  // { name: 'Sponsors', href: '#sponsors' },
+  { name: 'Schedule', href: '#schedule' },
+  { name: 'Sponsors', href: '#sponsors' },
   { name: 'Organizers', href: '#organizers' },
+  { name: 'Gallery', href: '/gallery' },
 ];
 
 export default function Navbar() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isScrolledPastThreshold = useScrollPosition(100);
@@ -32,6 +36,12 @@ export default function Navbar() {
     e.stopPropagation();
     // Close mobile menu first
     setIsMobileMenuOpen(false);
+    
+    // If we're not on the home page, navigate to home page with hash
+    if (pathname !== '/') {
+      router.push(`/${href}`);
+      return;
+    }
     
     // Wait for menu to close, then scroll
     setTimeout(() => {
@@ -111,24 +121,42 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                onClick={(e) => handleClick(e, item.href)}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.1 }}
-                className={`transition-colors duration-200 font-medium text-sm lg:text-base relative group ${
-                  scrolled
-                    ? 'text-gray-700 hover:text-red-800'
-                    : 'text-white hover:text-gray-200'
-                }`}
-              >
-                {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-800 transition-all duration-300 group-hover:w-full" />
-              </motion.a>
-            ))}
+            {navItems.map((item, index) => {
+              const isHashLink = item.href.startsWith('#');
+              const linkContent = (
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  className={`transition-colors duration-200 font-medium text-sm lg:text-base relative group ${
+                    scrolled
+                      ? 'text-gray-700 hover:text-red-800'
+                      : 'text-white hover:text-gray-200'
+                  }`}
+                >
+                  {item.name}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-800 transition-all duration-300 group-hover:w-full" />
+                </motion.div>
+              );
+
+              if (isHashLink) {
+                return (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleClick(e, item.href)}
+                  >
+                    {linkContent}
+                  </motion.a>
+                );
+              } else {
+                return (
+                  <Link key={item.name} href={item.href}>
+                    {linkContent}
+                  </Link>
+                );
+              }
+            })}
             {/* Support Button */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -191,22 +219,35 @@ export default function Navbar() {
               className="md:hidden overflow-hidden"
             >
               <div className="py-4 space-y-4">
-                {navItems.map((item, index) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <button
-                      type="button"
-                      onClick={(e) => handleClick(e, item.href)}
-                      className="w-full text-left px-4 py-2 transition-colors duration-200 font-medium text-sm cursor-pointer text-gray-700 hover:text-red-800 hover:bg-gray-50"
+                {navItems.map((item, index) => {
+                  const isHashLink = item.href.startsWith('#');
+                  return (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
                     >
-                      {item.name}
-                    </button>
-                  </motion.div>
-                ))}
+                      {isHashLink ? (
+                        <button
+                          type="button"
+                          onClick={(e) => handleClick(e, item.href)}
+                          className="w-full text-left px-4 py-2 transition-colors duration-200 font-medium text-sm cursor-pointer text-gray-700 hover:text-red-800 hover:bg-gray-50"
+                        >
+                          {item.name}
+                        </button>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block w-full text-left px-4 py-2 transition-colors duration-200 font-medium text-sm cursor-pointer text-gray-700 hover:text-red-800 hover:bg-gray-50"
+                        >
+                          {item.name}
+                        </Link>
+                      )}
+                    </motion.div>
+                  );
+                })}
                 {/* Mobile Sponsor Button */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
