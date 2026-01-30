@@ -9,8 +9,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-    // Uncomment the line below if images still don't load on Netlify
-    // unoptimized: true,
+    unoptimized: true,
   },
 };
 
