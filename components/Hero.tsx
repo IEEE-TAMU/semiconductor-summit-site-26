@@ -1,8 +1,11 @@
 'use client';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 export default function Hero() {
+  const [isHovered, setIsHovered] = useState(false);
+
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const element = document.querySelector(href);
@@ -16,6 +19,20 @@ export default function Hero() {
       });
     }
   };
+
+  // Generate particle positions and directions
+  const particles = Array.from({ length: 15 }, (_, i) => {
+    const angle = (i / 15) * Math.PI * 2;
+    const distance = 40 + Math.random() * 30;
+    return {
+      id: i,
+      startX: 50, // Start from center
+      startY: 50, // Start from center
+      endX: Math.cos(angle) * distance,
+      endY: Math.sin(angle) * distance,
+      delay: i * 0.08,
+    };
+  });
 
   return (
     <section
@@ -88,13 +105,87 @@ export default function Hero() {
           >
             Learn More
           </a>
-          {/* <a
-            href="#schedule"
-            onClick={(e) => handleSmoothScroll(e, '#schedule')}
-            className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-red-900 transition-colors duration-200"
+          <motion.a
+            href="https://www.eventbrite.com/e/ieee-tamu-semiconductor-summit-tickets-1982077271475"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative px-8 py-3 bg-white border-2 border-white text-red-900 rounded-lg font-semibold overflow-visible"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            whileHover={{
+              scale: 1.1,
+              backgroundColor: 'rgba(255, 255, 255, 1)',
+              color: '#991b1b',
+              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)',
+            }}
+            animate={{
+              x: isHovered ? [0, -1.2, 1.2, -0.8, 0.8, -0.4, 0.4, 0] : 0,
+              y: isHovered ? [0, 0.6, -0.6, 0.4, -0.4, 0.2, -0.2, 0] : 0,
+              rotate: isHovered ? [0, -0.5, 0.5, -0.3, 0.3, 0] : 0,
+            }}
+            transition={{
+              scale: { duration: 0.3 },
+              backgroundColor: { duration: 0.3 },
+              color: { duration: 0.3 },
+              boxShadow: { duration: 0.3 },
+              x: {
+                duration: 1.8,
+                repeat: isHovered ? Infinity : 0,
+                ease: 'easeInOut',
+              },
+              y: {
+                duration: 2.2,
+                repeat: isHovered ? Infinity : 0,
+                ease: 'easeInOut',
+              },
+              rotate: {
+                duration: 2,
+                repeat: isHovered ? Infinity : 0,
+                ease: 'easeInOut',
+              },
+            }}
           >
-            View Schedule
-          </a> */}
+            {/* Particle effects - only visible on hover */}
+            <AnimatePresence>
+              {isHovered && (
+                <div className="absolute inset-0 pointer-events-none overflow-visible">
+                  {particles.map((particle) => (
+                    <motion.div
+                      key={particle.id}
+                      className="absolute w-1.5 h-1.5 bg-white rounded-full"
+                      initial={{
+                        left: `${particle.startX}%`,
+                        top: `${particle.startY}%`,
+                        x: '-50%',
+                        y: '-50%',
+                        opacity: 0,
+                        scale: 0,
+                      }}
+                      animate={{
+                        left: `${particle.startX}%`,
+                        top: `${particle.startY}%`,
+                        x: `calc(-50% + ${particle.endX}px)`,
+                        y: `calc(-50% + ${particle.endY}px)`,
+                        opacity: [0, 1, 0.9, 0],
+                        scale: [0, 1.3, 1.1, 0],
+                      }}
+                      exit={{
+                        opacity: 0,
+                        scale: 0,
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        delay: particle.delay,
+                        repeat: Infinity,
+                        ease: [0.4, 0, 0.2, 1],
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
+            </AnimatePresence>
+            <span className="relative z-10">Register</span>
+          </motion.a>
         </motion.div>
       </div>
 
