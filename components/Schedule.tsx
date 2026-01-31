@@ -1,7 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
 const scheduleItems = [
   {
     time: '9:00 AM',
@@ -11,12 +9,14 @@ const scheduleItems = [
   {
     time: '10:00 AM',
     title: 'Welcome Remarks',
-    description: 'Welcome remarks from the event organizers and sponsors.',
+    description: 'Welcome remarks from the Summit Chairs.',
   },
   {
     time: '10:20 AM',
-    title: 'Keynote Speaker',
-    description: 'Speaker details to be announced.',
+    title: 'Keynote: Heterogeneous Integration and the Role of Hardware in Advancing AI',
+    description: 'This talk will provide insight into how cutting-edge research into increasing semiconductor performance led by the industry is driving the future of AI development. For students, this is a unique opportunity to hear how classroom fundamentals translate into cutting-edge technology and real impact, and how hardware innovation continues to define what\'s possible in AI.',
+    speaker: 'Timothy Lee',
+    speakerTitle: 'Boeing Technical Fellow and 2025 IEEE USA President',
   },
   {
     time: '10:45 AM',
@@ -40,8 +40,10 @@ const scheduleItems = [
   },
   {
     time: '1:05 PM',
-    title: 'Keynote Speaker',
-    description: 'Speaker details to be announced.',
+    title: 'Keynote: Scaling AI Beyond Moore\'s Law: SerDes, 3D-IC Interconnects, Silicon Photonics, and DTCO for the Next Generation of Computing',
+    description: 'This talk will provide an inside look at how the world\'s most advanced semiconductor systems are being designed, optimized, and scaled in industry — and what this means for the next era of AI hardware. With TSMC at the heart of the global semiconductor ecosystem, Dr. Shenggao Li\'s work directly contributes to the cutting-edge manufacturing and advanced packaging technologies that are powering the world\'s AI compute revolution — from data centers to next-generation accelerators. For students, this is a rare opportunity to learn directly from a leader shaping real production silicon. For industry, it highlights the technical depth and impact driving this year\'s Summit.',
+    speaker: 'Dr. Shenggao Li',
+    speakerTitle: 'TSMC',
   },
   {
     time: '1:30 PM',
@@ -97,18 +99,12 @@ export default function Schedule() {
       className="relative py-8 md:py-12 px-4 sm:px-6 lg:px-8 bg-white"
     >
       <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-8"
-        >
+        <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
             Schedule
           </h2>
           <div className="w-16 h-0.5 bg-red-800 mx-auto" />
-        </motion.div>
+        </div>
 
         <div className="text-center mb-8">
           NOTE: The schedule will be updated as we get closer to the event.
@@ -116,12 +112,8 @@ export default function Schedule() {
 
         <div className="space-y-0">
           {scheduleItems.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
               className="border-b border-gray-200 last:border-b-0 py-3"
             >
               <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
@@ -130,10 +122,18 @@ export default function Schedule() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-base font-semibold text-gray-900 mb-1">{item.title}</h3>
+                  {item.speaker && (
+                    <p className="text-gray-800 text-sm font-medium mb-1">
+                      {item.speaker}
+                      {item.speakerTitle && (
+                        <span className="text-gray-600 font-normal"> • {item.speakerTitle}</span>
+                      )}
+                    </p>
+                  )}
                   <p className="text-gray-600 text-sm leading-snug">{item.description}</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
