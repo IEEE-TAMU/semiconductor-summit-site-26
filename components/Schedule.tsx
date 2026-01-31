@@ -1,6 +1,10 @@
-'use client';
+import { getScheduleFromSheets } from '@/lib/googleSheets';
+import type { ScheduleItem } from '@/types/schedule';
 
-const scheduleItems = [
+export const revalidate = 60;
+
+// Fallback schedule data if Google Sheets fails
+const fallbackScheduleItems: ScheduleItem[] = [
   {
     time: '9:00 AM',
     title: 'Registration & Networking',
@@ -92,7 +96,14 @@ const scheduleItems = [
   },
 ];
 
-export default function Schedule() {
+export default async function Schedule() {
+  let scheduleItems: ScheduleItem[] = fallbackScheduleItems;
+
+  try {
+    scheduleItems = await getScheduleFromSheets();
+  } catch (error) {
+    console.error('Failed to fetch schedule from Google Sheets, using fallback:', error);
+  }
   return (
     <section
       id="schedule"

@@ -9,6 +9,10 @@ interface FAQItem {
 
 const faqItems: FAQItem[] = [
   {
+    question: 'How do I register for the event?',
+    answer: 'You can register for the event through our Eventbrite page. Click the "Register" button on this page or visit: https://www.eventbrite.com/e/ieee-tamu-semiconductor-summit-tickets-1982077271475',
+  },
+  {
     question: 'Is the event free to attend?',
     answer: 'Yes, the Semiconductor Summit is completely free and open to all attendees.',
   },

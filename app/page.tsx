@@ -17,6 +17,8 @@ import Footer from '@/components/Footer';
  * - schedule updates throughout the day of the event. current event highlighted at top of schedule. schedule is modifiable somehow
  */
 
+export const revalidate = 60;
+
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -27,7 +29,6 @@ export default function Home() {
       <LocationInfo />
       <Schedule />
       <Sponsors />
-      {/* TODO: support the summit section. button takes sponsors to a contact form and provides the sponsorship packet */}
       <FAQ />
       <Organizers />
       <Footer />
