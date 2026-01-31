@@ -86,7 +86,7 @@ const scheduleItems = [
   {
     time: '4:45 PM',
     title: 'Networking Reception',
-    description: 'Cocktail appetizers and networking reception.',
+    description: 'Mocktail appetizers and networking reception.',
   },
 ];
 
