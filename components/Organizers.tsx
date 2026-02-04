@@ -8,9 +8,10 @@ const organizers = [
   { name: 'Alan Jaf', role: 'Summit Co-Chair', photo: '/images/organizers/alan-jaf.png' },
   { name: 'Arju Kafle', role: 'Summit Co-Chair', photo: '/images/organizers/arju-kafle.png' },
   { name: 'Nafi Baksh', role: 'Finance Coordinator', photo: '/images/organizers/nafi-baksh.png' },
-  { name: 'Jadon Lee', role: 'Public Relations Coordinator', photo: '/images/organizers/jadon-lee.png' },
+  { name: 'Jadon Lee', role: 'Web Coordinator', photo: '/images/organizers/jadon-lee.png' },
   { name: 'Pallavi Gokul', role: 'Outreach Coordinator', photo: '/images/organizers/pallavi-gokul.png' },
   { name: 'Tanmai Buyyanapragada', role: 'Outreach Coordinator', photo: '/images/organizers/tanmai-buyyanapragada.png' },
+  { name: 'Romina Rincon Cruz', role: 'Hospitality Coordinator', photo: '/images/organizers/romina-rincon-cruz.png' }
 
 ];
 
@@ -28,6 +29,9 @@ export default function Organizers() {
         }
         .organizer-card-group:hover .organizer-image {
           transform: scale(1.1) !important;
+        }
+        .organizers-grid > *:nth-child(7) {
+          grid-column: 2;
         }
       `}} />
       <section
@@ -63,7 +67,7 @@ export default function Organizers() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-3 gap-3 md:gap-4 max-w-3xl mx-auto">
+        <div className="organizers-grid grid grid-cols-3 gap-3 md:gap-4 max-w-3xl mx-auto">
           {organizers.map((organizer, index) => (
             <motion.div
               key={index}
