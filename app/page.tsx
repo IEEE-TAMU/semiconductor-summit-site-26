@@ -4,6 +4,7 @@ import Mission from '@/components/Mission';
 import About from '@/components/About';
 import LocationInfo from '@/components/LocationInfo';
 import Schedule from '@/components/Schedule';
+import Speakers from '@/components/Speakers';
 import Sponsors from '@/components/Sponsors';
 import Organizers from '@/components/Organizers';
 import FAQ from '@/components/FAQ';
@@ -28,6 +29,7 @@ export default function Home() {
       <About />
       <LocationInfo />
       <Schedule />
+      <Speakers />
       <Sponsors />
       <FAQ />
       <Organizers />

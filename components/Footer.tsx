@@ -75,6 +75,15 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/#speakers"
+                  onClick={(e) => handleSmoothScroll(e, '#speakers')}
+                  className="hover:text-red-500 transition-colors cursor-pointer"
+                >
+                  Speakers
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/#sponsors"
                   onClick={(e) => handleSmoothScroll(e, '#sponsors')}
                   className="hover:text-red-500 transition-colors cursor-pointer"
