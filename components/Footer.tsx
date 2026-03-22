@@ -109,6 +109,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link
+                  href="/resume"
+                  className="hover:text-red-500 transition-colors cursor-pointer"
+                >
+                  Resume Upload
+                </Link>
+              </li>
+              <li>
                 <a
                   href="https://ieeetamu.org"
                   target="_blank"
