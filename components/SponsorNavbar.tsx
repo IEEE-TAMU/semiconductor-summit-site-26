@@ -37,7 +37,7 @@ export default function SponsorNavbar() {
               transition={{ duration: 0.3 }}
               className="text-lg md:text-xl font-bold text-red-800"
             >
-              IEEE TAMU Semiconductor Summit 2026
+              IEEE TAMU
             </motion.span>
           </div>
 
