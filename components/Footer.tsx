@@ -113,7 +113,7 @@ export default function Footer() {
                   href="/resume"
                   className="hover:text-red-500 transition-colors cursor-pointer"
                 >
-                  Resume Upload
+                  Resume
                 </Link>
               </li>
               <li>

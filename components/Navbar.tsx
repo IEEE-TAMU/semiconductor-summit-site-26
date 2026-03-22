@@ -15,6 +15,7 @@ const navItems = [
   { name: 'Sponsors', href: '#sponsors' },
   { name: 'Organizers', href: '#organizers' },
   { name: 'Gallery', href: '/gallery' },
+  { name: 'Resume', href: '/resume' },
 ];
 
 export default function Navbar() {

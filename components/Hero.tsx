@@ -1,10 +1,27 @@
 'use client';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Hero() {
   const [isHovered, setIsHovered] = useState(false);
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const target = new Date('2026-03-26T08:00:00-05:00').getTime();
+    const update = () => {
+      const diff = Math.max(0, target - Date.now());
+      setTimeLeft({
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / (1000 * 60)) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+      });
+    };
+    update();
+    const interval = setInterval(update, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -71,9 +88,36 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-6"
+        >
+          <div className="flex justify-center gap-3 sm:gap-5">
+            {[
+              { value: timeLeft.days, label: 'Days' },
+              { value: timeLeft.hours, label: 'Hours' },
+              { value: timeLeft.minutes, label: 'Minutes' },
+              { value: timeLeft.seconds, label: 'Seconds' },
+            ].map((unit) => (
+              <div key={unit.label} className="flex flex-col items-center">
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-3 py-2 sm:px-5 sm:py-3 min-w-[60px] sm:min-w-[80px]">
+                  <span className="text-2xl sm:text-4xl md:text-5xl font-bold text-white tabular-nums">
+                    {String(unit.value).padStart(2, '0')}
+                  </span>
+                </div>
+                <span className="text-xs sm:text-sm text-gray-300 mt-1 uppercase tracking-wider">
+                  {unit.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.25 }}
           className="mb-4"
         >
           <p className="text-xl sm:text-xl md:text-2xl text-gray-200 font-light">
