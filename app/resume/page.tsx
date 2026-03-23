@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import SponsorNavbar from '@/components/SponsorNavbar';
 import Footer from '@/components/Footer';
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+const MAX_FILE_SIZE = 2 * 1024 * 1024 * 1024; // 2GB
 
 export default function ResumePage() {
   const [status, setStatus] = useState<'idle' | 'uploading' | 'success' | 'error'>('idle');
@@ -31,7 +31,7 @@ export default function ResumePage() {
     }
 
     if (selected.size > MAX_FILE_SIZE) {
-      setErrorMessage('File size must be under 10 MB.');
+      setErrorMessage('File size must be under 2 GB.');
       setFile(null);
       if (fileInputRef.current) fileInputRef.current.value = '';
       return;
@@ -122,7 +122,7 @@ export default function ResumePage() {
             </h2>
             <div className="w-24 h-1 bg-red-800 mx-auto mb-4" />
             <p className="text-lg text-gray-600">
-              Upload a PDF of your resume (max 10 MB).
+              Upload a PDF of your resume (max 2 GB).
             </p>
           </motion.div>
 
