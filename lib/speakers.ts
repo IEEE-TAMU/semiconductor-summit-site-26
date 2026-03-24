@@ -11,9 +11,9 @@ export const speakers: Speaker[] = [
     image: '/images/speakers/timothy-lee.png',
   },
   {
-    id: 'dr-shenggao-li',
-    name: 'Dr. Shenggao Li',
-    image: '/images/speakers/dr-shenggao-li.png',
+    id: 'dr-victor-li',
+    name: 'Dr. Victor Li',
+    image: '/images/speakers/dr-victor-li.png',
   },
   {
     id: 'sarah-hemmer',
@@ -39,6 +39,41 @@ export const speakers: Speaker[] = [
     id: 'colin-tompkins',
     name: 'Colin Tompkins',
     image: '/images/speakers/colin-tompkins.png',
+  },
+  {
+    id: 'dr-albert-zeng',
+    name: 'Dr. Albert Zeng',
+    image: '/images/speakers/dr-albert-zeng.png',
+  },
+  {
+    id: 'greg-pavlik',
+    name: 'Greg Pavlik',
+    image: '/images/speakers/greg-pavlik.png',
+  },
+  {
+    id: 'kam-kittrell',
+    name: 'Kam Kittrell',
+    image: '/images/speakers/kam-kittrell.png',
+  },
+  {
+    id: 'rashmi-chatty',
+    name: 'Rashmi Chatty',
+    image: '/images/speakers/rashmi-chatty.png',
+  },
+  {
+    id: 'sandeep-bomthapalli',
+    name: 'Sandeep Bomthapalli',
+    image: '/images/speakers/sandeep-bomthapalli.png',
+  },
+  {
+    id: 'susan-graham',
+    name: 'Susan Graham',
+    image: '/images/speakers/susan-graham.png',
+  },
+  {
+    id: 'waheed-brown',
+    name: 'Waheed Brown',
+    image: '/images/speakers/waheed-brown.png',
   },
 ];
 

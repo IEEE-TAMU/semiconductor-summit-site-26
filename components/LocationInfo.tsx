@@ -201,7 +201,7 @@ export default function LocationInfo() {
                   <div className="space-y-3 text-gray-700 leading-relaxed">
                     <div>
                       <p className="font-semibold mb-1">Visitor Parking:</p>
-                      <p>Free parking will be available at the University Center Parking Garage (UCG). </p>
+                      <p>Paid parking will be available at the University Center Parking Garage (UCG). </p>
                     </div>
                   </div>
                 </div>

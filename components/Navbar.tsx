@@ -8,12 +8,9 @@ import { useRouter, usePathname } from 'next/navigation';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 
 const navItems = [
-  // { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
   { name: 'Schedule', href: '#schedule' },
   { name: 'Speakers', href: '#speakers' },
   { name: 'Sponsors', href: '#sponsors' },
-  { name: 'Organizers', href: '#organizers' },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Resume', href: '/resume' },
 ];

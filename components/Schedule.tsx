@@ -4,6 +4,34 @@ import type { ScheduleItem } from '@/types/schedule';
 
 export const revalidate = 60;
 
+function renderSpeakerLinks(speakerText: string) {
+  const speakerNames = speakerText
+    .split(/\s*(?:&| and )\s*/i)
+    .map((name) => name.trim())
+    .filter(Boolean);
+
+  if (speakerNames.length === 0) return speakerText;
+
+  return speakerNames.map((name, index) => {
+    const speaker = getSpeakerByName(name);
+    return (
+      <span key={`${name}-${index}`}>
+        {index > 0 && <span> & </span>}
+        {speaker ? (
+          <a
+            href={`/#speakers-${speaker.id}`}
+            className="text-red-800 hover:text-red-600 underline underline-offset-2"
+          >
+            {name}
+          </a>
+        ) : (
+          name
+        )}
+      </span>
+    );
+  });
+}
+
 // Fallback schedule data if Google Sheets fails
 const fallbackScheduleItems: ScheduleItem[] = [
   {
@@ -124,7 +152,6 @@ export default async function Schedule() {
 
         <div className="space-y-0">
           {scheduleItems.map((item, index) => {
-            const speaker = item.speaker ? getSpeakerByName(item.speaker) : undefined;
             return (
               <div
                 key={index}
@@ -138,26 +165,12 @@ export default async function Schedule() {
                     <h3 className="text-base font-semibold text-gray-900 mb-1">{item.title}</h3>
                     {item.speaker && (
                       <p className="text-gray-800 text-sm font-medium mb-1">
-                        {speaker ? (
-                          <>
-                            <a
-                              href={`/#speakers-${speaker.id}`}
-                              className="text-red-800 hover:text-red-600 underline underline-offset-2"
-                            >
-                              {item.speaker}
-                            </a>
-                            {item.speakerTitle && (
-                              <span className="text-gray-600 font-normal"> • {item.speakerTitle}</span>
-                            )}
-                          </>
-                        ) : (
-                          <>
-                            {item.speaker}
-                            {item.speakerTitle && (
-                              <span className="text-gray-600 font-normal"> • {item.speakerTitle}</span>
-                            )}
-                          </>
-                        )}
+                        <>
+                          {renderSpeakerLinks(item.speaker)}
+                          {item.speakerTitle && (
+                            <span className="text-gray-600 font-normal"> • {item.speakerTitle}</span>
+                          )}
+                        </>
                       </p>
                     )}
                     <p className="text-gray-600 text-sm leading-snug">{item.description}</p>
