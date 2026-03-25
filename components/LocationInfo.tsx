@@ -59,7 +59,7 @@ export default function LocationInfo() {
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Location</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    Rudder Tower<br />
+                    Rudder Theatre & Exhibit Hall<br />
                     Texas A&M University<br />
                     401 Joe Routt Blvd<br />
                     College Station, TX 77843
