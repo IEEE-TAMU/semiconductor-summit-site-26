@@ -7,11 +7,23 @@ import Footer from '@/components/Footer';
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
 
+const MONTHS = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+];
+
 export default function ResumePage() {
   const [status, setStatus] = useState<'idle' | 'uploading' | 'success' | 'error'>('idle');
   const [file, setFile] = useState<File | null>(null);
   const [errorMessage, setErrorMessage] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [school, setSchool] = useState('');
+  const [major, setMajor] = useState('');
+  const [gradMonth, setGradMonth] = useState('');
+  const [gradYear, setGradYear] = useState('');
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0] ?? null;
@@ -47,27 +59,22 @@ export default function ResumePage() {
     setErrorMessage('');
 
     try {
-      const res = await fetch('/api/get-upload-url', {
+      const formData = new FormData();
+      formData.append('file', file);
+      if (name) formData.append('name', name);
+      if (email) formData.append('email', email);
+      if (school) formData.append('school', school);
+      if (major) formData.append('major', major);
+      if (gradMonth && gradYear) formData.append('gradDate', `${gradMonth} ${gradYear}`);
+
+      const res = await fetch('/api/upload-resume', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ filename: file.name }),
+        body: formData,
       });
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || 'Failed to get upload URL.');
-      }
-
-      const { uploadUrl } = await res.json();
-
-      const uploadRes = await fetch(uploadUrl, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/pdf' },
-        body: file,
-      });
-
-      if (!uploadRes.ok) {
-        throw new Error('Upload failed. Please try again.');
+        throw new Error(data.error || 'Upload failed. Please try again.');
       }
 
       setStatus('success');
@@ -156,6 +163,88 @@ export default function ResumePage() {
                   </p>
                 </motion.div>
               )}
+
+              {/* Optional Info Fields */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Full Name <span className="text-gray-400 font-normal">(optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                    placeholder="Jane Doe"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-800 focus:border-red-800 outline-none transition-colors"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email <span className="text-gray-400 font-normal">(optional)</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    placeholder="jane@example.com"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-800 focus:border-red-800 outline-none transition-colors"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="school" className="block text-sm font-medium text-gray-700 mb-2">
+                    School <span className="text-gray-400 font-normal">(optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="school"
+                    value={school}
+                    onChange={e => setSchool(e.target.value)}
+                    placeholder="Texas A&M University"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-800 focus:border-red-800 outline-none transition-colors"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="major" className="block text-sm font-medium text-gray-700 mb-2">
+                    Major <span className="text-gray-400 font-normal">(optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="major"
+                    value={major}
+                    onChange={e => setMajor(e.target.value)}
+                    placeholder="Electrical Engineering"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-800 focus:border-red-800 outline-none transition-colors"
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Expected Graduation <span className="text-gray-400 font-normal">(optional)</span>
+                  </label>
+                  <div className="flex gap-3">
+                    <select
+                      value={gradMonth}
+                      onChange={e => setGradMonth(e.target.value)}
+                      className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-800 focus:border-red-800 outline-none transition-colors bg-white"
+                    >
+                      <option value="">Month</option>
+                      {MONTHS.map(m => (
+                        <option key={m} value={m}>{m}</option>
+                      ))}
+                    </select>
+                    <input
+                      type="number"
+                      value={gradYear}
+                      onChange={e => setGradYear(e.target.value)}
+                      placeholder="Year"
+                      min={2024}
+                      max={2035}
+                      className="w-28 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-800 focus:border-red-800 outline-none transition-colors"
+                    />
+                  </div>
+                </div>
+              </div>
 
               {/* File Input */}
               <div>

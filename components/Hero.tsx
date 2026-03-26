@@ -40,7 +40,8 @@ export default function Hero() {
   // Generate particle positions and directions
   const particles = Array.from({ length: 15 }, (_, i) => {
     const angle = (i / 15) * Math.PI * 2;
-    const distance = 40 + Math.random() * 30;
+    const normalized = (Math.sin(i * 12.9898) + 1) / 2;
+    const distance = 40 + normalized * 30;
     return {
       id: i,
       startX: 50, // Start from center

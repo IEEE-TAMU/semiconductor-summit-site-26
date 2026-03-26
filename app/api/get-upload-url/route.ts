@@ -14,7 +14,7 @@ const s3 = new S3Client({
 
 export async function POST(request: NextRequest) {
   try {
-    const { filename } = await request.json();
+    const { filename, name, email, school, major, gradDate } = await request.json();
 
     if (!filename || typeof filename !== 'string') {
       return NextResponse.json(
@@ -37,15 +37,23 @@ export async function POST(request: NextRequest) {
 
     const key = `resumes/${sanitized}-${randomUUID()}.pdf`;
 
+    const metadata: Record<string, string> = {};
+    if (name) metadata['submitter-name'] = name.slice(0, 200);
+    if (email) metadata['submitter-email'] = email.slice(0, 200);
+    if (school) metadata['submitter-school'] = school.slice(0, 200);
+    if (major) metadata['submitter-major'] = major.slice(0, 200);
+    if (gradDate) metadata['submitter-grad-date'] = gradDate.slice(0, 50);
+
     const command = new PutObjectCommand({
       Bucket: process.env.R2_BUCKET_NAME,
       Key: key,
       ContentType: 'application/pdf',
+      Metadata: Object.keys(metadata).length > 0 ? metadata : undefined,
     });
 
     const uploadUrl = await getSignedUrl(s3, command, { expiresIn: 300 });
 
-    return NextResponse.json({ uploadUrl, key });
+    return NextResponse.json({ uploadUrl, key, metadata });
   } catch (error) {
     console.error('Failed to generate upload URL:', error);
     return NextResponse.json(
